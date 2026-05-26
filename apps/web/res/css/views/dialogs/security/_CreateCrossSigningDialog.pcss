@@ -7,19 +7,34 @@ Please see LICENSE files in the repository root for full details.
 */
 
 .mx_CreateCrossSigningDialog {
-    /* Why you ask? Because CompleteSecurityBody is 600px so this is the width */
-    /* we end up when in there, but when in our own dialog we set our own width */
-    /* so need to fix it to something sensible as otherwise we'd end up either */
-    /* really wide or really narrow depending on the phase. I bet you wish you */
-    /* never asked. */
-    width: 560px;
+    width: 400px;
+    border-radius: var(--cpd-space-4x);
+    text-align: center;
+    padding: var(--cpd-space-10x);
+    outline: none;
 
     details .mx_AccessibleButton {
-        margin: 1em 0; /* emulate paragraph spacing because we can't put this button in a paragraph due to HTML rules */
+        margin: 1em 0;
     }
 }
 
 .mx_CreateCrossSigningDialog .mx_Dialog_title {
-    /* TODO: Consider setting this for all dialog titles. */
-    margin-bottom: 1em;
+    margin-bottom: var(--cpd-space-6x);
+    font-size: $font-18px;
+    font-weight: var(--cpd-font-weight-semibold);
+}
+
+.mx_InitialCryptoSetup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--cpd-space-8x);
+
+    h2 {
+        font-size: $font-18px;
+        font-weight: var(--cpd-font-weight-semibold);
+        margin: 0 0 var(--cpd-space-8x);
+    }
 }

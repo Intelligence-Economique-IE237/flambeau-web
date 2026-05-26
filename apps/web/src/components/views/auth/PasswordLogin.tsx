@@ -362,20 +362,6 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
     }
 
     public render(): React.ReactNode {
-        let forgotPasswordJsx: JSX.Element | undefined;
-
-        if (this.props.onForgotPasswordClick) {
-            forgotPasswordJsx = (
-                <AccessibleButton
-                    className="mx_Login_forgot"
-                    disabled={this.props.busy}
-                    kind="link"
-                    onClick={this.onForgotPasswordClick}
-                >
-                    {_t("auth|reset_password_button")}
-                </AccessibleButton>
-            );
-        }
 
         const pwFieldClass = classNames({
             error: this.props.loginIncorrect && !this.isLoginEmpty(), // only error password if error isn't top field
@@ -432,7 +418,6 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                             this[LoginField.Password] = field;
                         }}
                     />
-                    {forgotPasswordJsx}
                     {!this.props.busy && (
                         <Button className="mx_Login_submit" size="md" type="submit" disabled={this.props.disableSubmit}>
                             {_t("action|sign_in")}

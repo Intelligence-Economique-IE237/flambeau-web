@@ -11,7 +11,6 @@ import { type MatrixClient } from "matrix-js-sdk/src/matrix";
 import { CryptoEvent } from "matrix-js-sdk/src/crypto-api";
 
 import { messageForSyncError } from "../../../utils/ErrorUtils";
-import Spinner from "../../views/elements/Spinner";
 import ProgressBar from "../../views/elements/ProgressBar";
 import AccessibleButton, { type ButtonEvent } from "../../views/elements/AccessibleButton";
 import { _t } from "../../../languageHandler";
@@ -54,7 +53,7 @@ export function LoginSplashView(props: Props): JSX.Element {
         errorBox = <div className="mx_LoginSplashView_syncError">{messageForSyncError(props.syncError)}</div>;
     }
 
-    // If we are migrating the crypto data, show a progress bar. Otherwise, show a normal spinner.
+    // If we are migrating the crypto data, show a progress bar. Otherwise, show a pulsing logo.
     let spinnerOrProgress;
     if (migrationState.totalSteps !== -1) {
         spinnerOrProgress = (
@@ -64,7 +63,11 @@ export function LoginSplashView(props: Props): JSX.Element {
             </div>
         );
     } else {
-        spinnerOrProgress = <Spinner />;
+        spinnerOrProgress = (
+            <div className="mx_LoginSplashView_logo">
+                <img src="themes/element/img/logos/element-logo.png" alt={SdkConfig.get().brand} />
+            </div>
+        );
     }
 
     return (

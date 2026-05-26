@@ -11,7 +11,6 @@ import React, { useCallback } from "react";
 
 import { _t } from "../../../../languageHandler";
 import DialogButtons from "../../elements/DialogButtons";
-import BaseDialog from "../BaseDialog";
 import Spinner from "../../elements/Spinner";
 import { InitialCryptoSetupStore, useInitialCryptoSetupStatus } from "../../../../stores/InitialCryptoSetupStore";
 
@@ -48,21 +47,13 @@ export const InitialCryptoSetupDialog: React.FC<Props> = ({ onCancelled }) => {
             </div>
         );
     } else {
-        content = (
-            <div>
-                <Spinner />
-            </div>
-        );
+        content = <Spinner />;
     }
 
     return (
-        <BaseDialog
-            className="mx_CreateCrossSigningDialog"
-            title={_t("encryption|bootstrap_title")}
-            hasCancel={false}
-            fixedWidth={false}
-        >
-            <div>{content}</div>
-        </BaseDialog>
+        <div className="mx_InitialCryptoSetup">
+            <h2>{_t("encryption|bootstrap_title")}</h2>
+            {content}
+        </div>
     );
 };

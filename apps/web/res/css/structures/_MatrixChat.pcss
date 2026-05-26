@@ -9,6 +9,37 @@ Please see LICENSE files in the repository root for full details.
 .mx_MatrixChat_splash {
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mx_LoginSplashView_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 64px;
+        height: 64px;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.92);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .mx_MatrixChat_wrapper {

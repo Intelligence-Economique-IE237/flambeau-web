@@ -14,8 +14,10 @@ import SdkConfig from "../../../SdkConfig";
 import AuthPage from "./AuthPage";
 import SettingsStore from "../../../settings/SettingsStore";
 import { UIFeature } from "../../../settings/UIFeature";
-import LanguageSelector from "./LanguageSelector";
 import EmbeddedPage from "../../structures/EmbeddedPage";
+import LanguageDropdown from "../elements/LanguageDropdown";
+import { getCurrentLanguage } from "../../../languageHandler";
+import { SettingLevel } from "../../../settings/SettingLevel";
 import { MATRIX_LOGO_HTML } from "../../structures/static-page-vars";
 import DefaultWelcome from "./DefaultWelcome.tsx";
 
@@ -48,7 +50,16 @@ export default class Welcome extends React.PureComponent<EmptyObject> {
                         })}
                     >
                         {body}
-                        <LanguageSelector />
+                        <LanguageDropdown
+                            className="mx_AuthBody_language"
+                            onOptionChange={(newLang: string) => {
+                                if (getCurrentLanguage() !== newLang) {
+                                    SettingsStore.setValue("language", null, SettingLevel.DEVICE, newLang);
+                                    window.location.reload();
+                                }
+                            }}
+                            value={getCurrentLanguage()}
+                        />
                     </div>
                 </Glass>
             </AuthPage>

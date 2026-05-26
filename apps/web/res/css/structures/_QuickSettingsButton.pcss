@@ -47,6 +47,7 @@ Please see LICENSE files in the repository root for full details.
         & > div {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
         }
 
         svg {
@@ -60,6 +61,9 @@ Please see LICENSE files in the repository root for full details.
         & .mx_QuickSettingsButton_label {
             /* !important override compound  */
             color: $secondary-content !important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     }
 }

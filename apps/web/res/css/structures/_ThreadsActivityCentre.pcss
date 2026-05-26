@@ -34,6 +34,7 @@
         & > div {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
 
             &::before {
                 inline-size: 8px;
@@ -53,6 +54,9 @@
         & .mx_ThreadsActivityCentreButton_Text {
             /* !important override compound  */
             color: $secondary-content !important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     }
 

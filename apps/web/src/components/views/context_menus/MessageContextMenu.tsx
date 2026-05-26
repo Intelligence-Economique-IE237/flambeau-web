@@ -727,12 +727,10 @@ export default class MessageContextMenu extends React.Component<IProps, IState> 
                 {openInMapSiteButton}
                 {endPollButton}
                 {forwardButton}
-                {permalinkButton}
                 {reportEventButton}
                 {externalURLButton}
                 {jumpToRelatedEventButton}
                 {unhidePreviewButton}
-                {viewSourceButton}
                 {resendReactionsButton}
                 {collapseReplyChainButton}
             </IconizedContextMenuOptionList>
