@@ -10,7 +10,6 @@ import { Button, Heading, Text } from "@vector-im/compound-web";
 
 import { _t } from "../../../languageHandler";
 import SdkConfig from "../../../SdkConfig.ts";
-import { MatrixClientPeg } from "../../../MatrixClientPeg.ts";
 import { isElementBranded } from "../../../branding.ts";
 
 const DefaultWelcome: React.FC = () => {
@@ -18,7 +17,6 @@ const DefaultWelcome: React.FC = () => {
     const branding = SdkConfig.getObject("branding");
     const logoUrl = branding.get("auth_header_logo_url");
 
-    const showGuestFunctions = !!MatrixClientPeg.get();
     const isElement = isElementBranded();
 
     return (
@@ -35,14 +33,6 @@ const DefaultWelcome: React.FC = () => {
                 <Button as="a" href="#/login" kind="primary" size="md">
                     {_t("action|sign_in")}
                 </Button>
-                <Button as="a" href="#/register" kind="secondary" size="md">
-                    {_t("action|create_account")}
-                </Button>
-                {showGuestFunctions && (
-                    <Button as="a" href="#/directory" kind="tertiary" size="md">
-                        {_t("action|explore_rooms")}
-                    </Button>
-                )}
             </div>
         </div>
     );
