@@ -179,10 +179,10 @@ function loadConfig(): Promise<void> {
                 await app.whenReady();
                 void dialog.showMessageBox({
                     type: "error",
-                    title: `Your ${global.vectorConfig.brand || "Element"} is misconfigured`,
+                    title: `Your ${global.vectorConfig.brand || "Flambeau"} is misconfigured`,
                     message:
-                        `Your custom ${global.vectorConfig.brand || "Element"} configuration contains invalid JSON. ` +
-                        `Please correct the problem and reopen ${global.vectorConfig.brand || "Element"}.`,
+                        `Your custom ${global.vectorConfig.brand || "Flambeau"} configuration contains invalid JSON. ` +
+                        `Please correct the problem and reopen ${global.vectorConfig.brand || "Flambeau"}.`,
                     detail: e.message || "",
                 });
             }

@@ -16,7 +16,7 @@ import { type DeepPartial, type DeepReadonly, type Defaultize } from "./@types/c
 
 // see element-web config.md for docs, or the IConfigOptions interface for dev docs
 export const DEFAULTS: DeepReadonly<IConfigOptions> = {
-    brand: "Element",
+    brand: "Flambeau",
     branding: {
         logo_link_url: "https://element.io",
         auth_header_logo_url: "themes/element/img/logos/element-logo.png",
@@ -35,7 +35,7 @@ export const DEFAULTS: DeepReadonly<IConfigOptions> = {
     },
     element_call: {
         use_exclusively: false,
-        brand: "Element Call",
+        brand: "Flambeau Call",
     },
 
     // @ts-ignore - we deliberately use the camelCase version here so we trigger

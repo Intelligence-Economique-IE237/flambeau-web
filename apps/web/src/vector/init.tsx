@@ -158,3 +158,5 @@ export async function loadPlugins(): Promise<void> {
 export { _t } from "../languageHandler";
 
 export { extractErrorMessageFromError } from "../components/views/dialogs/ErrorDialog";
+
+export { default as SdkConfig } from "../SdkConfig";

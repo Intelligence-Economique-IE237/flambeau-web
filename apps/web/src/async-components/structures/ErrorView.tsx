@@ -119,7 +119,7 @@ export const UnsupportedBrowserView: React.FC<{
     onAccept?(this: void): void;
 }> = ({ onAccept }) => {
     const config = SdkConfig.get();
-    const brand = config.brand ?? "Element";
+    const brand = config.brand ?? "Flambeau";
 
     const hasDesktopBuilds =
         config.desktop_builds?.available &&

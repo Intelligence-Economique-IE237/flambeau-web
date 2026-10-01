@@ -124,6 +124,7 @@ async function start(): Promise<void> {
         showIncompatibleBrowser,
         _t,
         extractErrorMessageFromError,
+        SdkConfig,
     } = await import(
         /* webpackChunkName: "init" */
         /* webpackPreload: true */
@@ -206,8 +207,9 @@ async function start(): Promise<void> {
             // Now that we've loaded the theme (CSS), display the config syntax error if needed.
             if (error instanceof SyntaxError) {
                 // This uses the default brand since the app config is unavailable.
-                return showError(_t("error|misconfigured"), [
-                    _t("error|invalid_json"),
+                const brand = SdkConfig.get().brand;
+                return showError(_t("error|misconfigured", { brand }), [
+                    _t("error|invalid_json", { brand }),
                     _t("error|invalid_json_detail", {
                         message: error.message || _t("error|invalid_json_generic"),
                     }),
@@ -237,7 +239,7 @@ async function start(): Promise<void> {
         logger.error(err);
         // Like the compatibility page, AWOOOOOGA at the user
         // This uses the default brand since the app config is unavailable.
-        await showError(_t("error|misconfigured"), [
+        await showError(_t("error|misconfigured", { brand: SdkConfig.get().brand }), [
             extractErrorMessageFromError(err, _t("error|app_launch_unexpected_error")),
         ]);
     }
